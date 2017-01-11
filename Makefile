@@ -52,9 +52,8 @@ install-deps:
 .PHONY: compile
 compile:
 	git clone -q -b v$(VERSION) https://github.com/Kitware/CMake.git
-	cd cmake && \
-		autoconf && \
-		./configure --prefix=$(PREFIX) && \
+	cd CMake && \
+		./bootstrap && \
 		make \
 	;
 
@@ -63,7 +62,7 @@ compile:
 .PHONY: install-tmp
 install-tmp:
 	mkdir -p /tmp/installdir-$(NAME)-$(VERSION);
-	cd cmake && \
+	cd CMake && \
 		make install DESTDIR=/tmp/installdir-$(NAME)-$(VERSION);
 
 #-------------------------------------------------------------------------------
@@ -80,6 +79,8 @@ package:
 		-v $(VERSION) \
 		-C /tmp/installdir-$(NAME)-$(VERSION) \
 		-m $(MAINTAINER) \
+		--replace cmake \
+		--replace cmake3 \
 		--epoch $(EPOCH) \
 		--iteration $(ITERATION) \
 		--license $(LICENSE) \
@@ -91,10 +92,40 @@ package:
 		--rpm-digest md5 \
 		--rpm-compression gzip \
 		--rpm-os linux \
-		--rpm-changelog CHANGELOG.txt \
+		--rpm-changelog CHANGELOG-$(NAME).txt \
 		--rpm-dist el$(RHEL) \
 		--rpm-auto-add-directories \
 		usr/local/bin \
+	;
+
+	# Documentation package
+	fpm \
+		-f \
+		-d "$(NAME) = $(EPOCH):$(VERSION)-$(ITERATION).el$(RHEL)" \
+		-s dir \
+		-t rpm \
+		-n $(NAME)-doc \
+		-v $(VERSION) \
+		-C /tmp/installdir-$(NAME)-$(VERSION) \
+		-m $(MAINTAINER) \
+		--replace cmake-doc \
+		--replace cmake3-doc \
+		--epoch 1 \
+		--iteration $(ITERATION) \
+		--license $(LICENSE) \
+		--vendor $(VENDOR) \
+		--prefix / \
+		--url $(URL) \
+		--description $(DESCRIPTION) \
+		--rpm-defattrdir 0755 \
+		--rpm-digest md5 \
+		--rpm-compression gzip \
+		--rpm-os linux \
+		--rpm-changelog CHANGELOG-$(NAME).txt \
+		--rpm-dist el$(RHEL) \
+		--rpm-auto-add-directories \
+		usr/local/doc \
+		usr/local/share \
 	;
 
 #-------------------------------------------------------------------------------
