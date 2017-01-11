@@ -79,8 +79,8 @@ package:
 		-v $(VERSION) \
 		-C /tmp/installdir-$(NAME)-$(VERSION) \
 		-m $(MAINTAINER) \
-		--replace cmake \
-		--replace cmake3 \
+		--replaces cmake \
+		--replaces cmake3 \
 		--epoch $(EPOCH) \
 		--iteration $(ITERATION) \
 		--license $(LICENSE) \
@@ -108,8 +108,8 @@ package:
 		-v $(VERSION) \
 		-C /tmp/installdir-$(NAME)-$(VERSION) \
 		-m $(MAINTAINER) \
-		--replace cmake-doc \
-		--replace cmake3-doc \
+		--replaces cmake-doc \
+		--replaces cmake3-doc \
 		--epoch 1 \
 		--iteration $(ITERATION) \
 		--license $(LICENSE) \
