@@ -92,7 +92,7 @@ package:
 		--rpm-digest md5 \
 		--rpm-compression gzip \
 		--rpm-os linux \
-		--rpm-changelog CHANGELOG-$(NAME).txt \
+		--rpm-changelog CHANGELOG.txt \
 		--rpm-dist el$(RHEL) \
 		--rpm-auto-add-directories \
 		usr/local/bin \
@@ -121,7 +121,7 @@ package:
 		--rpm-digest md5 \
 		--rpm-compression gzip \
 		--rpm-os linux \
-		--rpm-changelog CHANGELOG-$(NAME).txt \
+		--rpm-changelog CHANGELOG.txt \
 		--rpm-dist el$(RHEL) \
 		--rpm-auto-add-directories \
 		usr/local/doc \
