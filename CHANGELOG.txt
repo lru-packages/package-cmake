@@ -1,2 +1,5 @@
+* Tue Jan 17 2017 Ryan Parman <ryan@ryanparman.com> 3.7.2-1
+- Bundles CMake 3.7.2.
+
 * Tue Jan 10 2017 Ryan Parman <ryan@ryanparman.com> 3.7.1-1
 - Bundles CMake 3.7.1.
