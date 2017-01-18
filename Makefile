@@ -35,7 +35,7 @@ info:
 
 .PHONY: clean
 clean:
-	rm -Rf /tmp/installdir* cmake*
+	rm -Rf /tmp/installdir* cmake* CMake*
 
 #-------------------------------------------------------------------------------
 
