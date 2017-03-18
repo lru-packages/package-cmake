@@ -1,7 +1,7 @@
 NAME=cmake
 VERSION=3.7.2
 EPOCH=1
-ITERATION=1
+ITERATION=2
 PREFIX=/usr/local
 LICENSE=BSD-3-Clause
 VENDOR="Kitware"
@@ -96,6 +96,7 @@ package:
 		--rpm-dist el$(RHEL) \
 		--rpm-auto-add-directories \
 		usr/local/bin \
+		usr/local/share \
 	;
 
 	# Documentation package
@@ -125,7 +126,6 @@ package:
 		--rpm-dist el$(RHEL) \
 		--rpm-auto-add-directories \
 		usr/local/doc \
-		usr/local/share \
 	;
 
 #-------------------------------------------------------------------------------
