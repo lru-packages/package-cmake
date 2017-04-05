@@ -1,7 +1,6 @@
 NAME=cmake
 VERSION=3.7.2
-EPOCH=1
-ITERATION=2
+ITERATION=1.lru
 PREFIX=/usr/local
 LICENSE=BSD-3-Clause
 VENDOR="Kitware"
@@ -20,7 +19,6 @@ all: info clean install-deps compile install-tmp package move
 info:
 	@ echo "NAME:        $(NAME)"
 	@ echo "VERSION:     $(VERSION)"
-	@ echo "EPOCH:       $(EPOCH)"
 	@ echo "ITERATION:   $(ITERATION)"
 	@ echo "PREFIX:      $(PREFIX)"
 	@ echo "LICENSE:     $(LICENSE)"
@@ -81,7 +79,6 @@ package:
 		-m $(MAINTAINER) \
 		--replaces cmake \
 		--replaces cmake3 \
-		--epoch $(EPOCH) \
 		--iteration $(ITERATION) \
 		--license $(LICENSE) \
 		--vendor $(VENDOR) \
@@ -111,7 +108,6 @@ package:
 		-m $(MAINTAINER) \
 		--replaces cmake-doc \
 		--replaces cmake3-doc \
-		--epoch 1 \
 		--iteration $(ITERATION) \
 		--license $(LICENSE) \
 		--vendor $(VENDOR) \
