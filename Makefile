@@ -1,5 +1,5 @@
 NAME=cmake
-VERSION=3.9.2
+VERSION=3.9.6
 ITERATION=1.lru
 PREFIX=/usr/local
 LICENSE=BSD-3-Clause
